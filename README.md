@@ -1,6 +1,6 @@
 <h1>React Person Project</h1>
 
-This is a full stack project, tecnologies used here FastAPI and Python and Uvicorn for asyncronous server side and backend, and for frontend React and some bootstrap frameworks were used, backend consist CRUD endpoints, basic REST http command are supported GET, POST, PUT and DELETE.
+This is a full stack project, tecnologies used here FastAPI and Python and Uvicorn for asyncronous server side and backend, and for frontend React with JSX and some CSS and some bootstrap (bootstrap only for some btns and top headers) frameworks were used, backend consist CRUD endpoints, basic REST http command are supported GET, POST, PUT and DELETE.
 
 First before executing the project, some setups must be done, first Backend has to be running before using the ract app.
 
