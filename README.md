@@ -37,6 +37,9 @@ First before executing the project, some setups must be done, first Backend has 
 
   ![image](https://github.com/user-attachments/assets/fb92fe9d-a9ab-4139-bc10-50607ca6b0ab)
 
+  ![image](https://github.com/user-attachments/assets/1458bf97-7172-4587-b45f-be21d80bd307)
+
+
 
   <h3>Creating</h3>
   
