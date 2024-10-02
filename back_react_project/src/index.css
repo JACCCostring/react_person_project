@@ -118,3 +118,9 @@
 .content-form button{
   margin-bottom: 6em;
 }
+
+.content-form .searchKey{
+  margin-left: 30%;
+  margin-top: 20em;
+  position: fixed;
+}

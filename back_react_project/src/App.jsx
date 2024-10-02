@@ -3,7 +3,9 @@ import api from './api'
 import Modal from './Components/Modal.jsx'
 
 const App = () => {
-  const [person, setPerson] = useState([])
+  // use states hooks
+  const [person, setPerson] = useState([]);
+
   const [formPersonData, setFormPersonData] = useState({
     firstName: '',
     lastName: '',
@@ -19,6 +21,10 @@ const App = () => {
     age: '',
     phone: ''
   });
+
+  const [search, setSearch] = useState('')
+
+  // end of states hooks
 
   const fetchAllPerson = async () => {
     const resp = await api.get('/all_person/')
@@ -36,6 +42,8 @@ const App = () => {
     setFormPersonData({
       ...formPersonData, [event.target.name]: event.target.value
     });
+
+    // setPerson([{...formPersonData}])
 };
 
   const handleFormSubmit = async (event) => {
@@ -91,13 +99,17 @@ const App = () => {
     <div className='content-form'>
       <form onSubmit={handleFormSubmit}>
 
+        <div className='searchKey'>
+          <input type='text' placeholder='filter by name' onChange={ (e) =>{setSearch(e.target.value)} } ></input>
+        </div>
+
         <div className=''>
         {/* ui element for first name */}
         <div className='form-group'>
         <label htmlFor='firstName' className=''>
           First Name
         </label>
-        <input type='text' className='' id='firstName' name='firstName' onChange={handleInputChanges} value={formPersonData.firstName}/>
+        <input type='text' placeholder='name' className='' id='firstName' name='firstName' onChange={handleInputChanges} value={formPersonData.firstName}/>
         </div>
 
         <div className='form-group'>
@@ -105,7 +117,7 @@ const App = () => {
         <label htmlFor='lastName' className=''>
           Last Name
         </label>
-        <input type='text' className='' id='lastName' name='lastName' onChange={handleInputChanges} value={formPersonData.lastName}/>
+        <input type='text' placeholder='second name' className='' id='lastName' name='lastName' onChange={handleInputChanges} value={formPersonData.lastName}/>
         </div>
 
         <div className='form-group'>
@@ -121,7 +133,7 @@ const App = () => {
         <label htmlFor='phone' className=''>
           Phone Number
         </label>
-        <input type='text' className='' id='phone' name='phone' onChange={handleInputChanges} value={formPersonData.phone}/>
+        <input type='text' placeholder='phone numer' className='' id='phone' name='phone' onChange={handleInputChanges} value={formPersonData.phone}/>
         </div>
 
         </div>
@@ -146,12 +158,15 @@ const App = () => {
         </tr>
       </thead>
       <tbody>
-        {person.map((p) => (
+        {person.filter((p) => {
+          return search.toLowerCase() === '' ? p : p.firstName.toLowerCase().includes(search);
+        }).map((p) => (
         <tr key={p.id}>
           <td>{p.firstName}</td>
           <td>{p.lastName}</td>
           <td>{p.age}</td>
           <td>{p.phone}</td>
+
           <button onClick={()=> handleModifyPerson(p.id)}>Edit</button>
           <button onClick={()=> handleDeletePerson(p.id)}>Delete</button>
         </tr>
@@ -161,7 +176,7 @@ const App = () => {
     
     </div>
     
-    {/* modal component */}
+    {/* modal component for modifying data from table and deliver it back to DB*/}
     {addPersonModal ? <Modal p_modf={person_to_modify} fetch_again={fetchAllPerson} closePersonModel={()=> { setAddPersonModal() }}/>: ''} 
 
   </div>
