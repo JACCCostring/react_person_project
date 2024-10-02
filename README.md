@@ -36,6 +36,13 @@ First before executing the project, some setups must be done, first Backend has 
   ![image](https://github.com/user-attachments/assets/fb92fe9d-a9ab-4139-bc10-50607ca6b0ab)
 
 
+  ![image](https://github.com/user-attachments/assets/d421556c-3626-47f2-ad2b-e6432a681f97)
+
+
+  ![image](https://github.com/user-attachments/assets/cb3ff1d3-fe12-433c-9949-6b983119d4ee)
+
+
+
   <h2>Swagger UI backend Rest API</h2>
 
   <h3>Person REST API</h3>
